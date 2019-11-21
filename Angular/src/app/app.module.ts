@@ -1,23 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import {
-  MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatDialogModule,
-  MatInputModule, MatCardModule, MatNativeDateModule, MatDatepickerModule
-} from '@angular/material';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
-import { Apollo, ApolloModule } from 'apollo-angular';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
-import { AddTaskComponent } from './components/add-task/add-task.component';
 import { AlltasksComponent } from './components/alltasks/alltasks.component';
+import { MatNativeDateModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
+
+import { ApolloModule, Apollo } from 'apollo-angular';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,
+  MatInputModule, MatDatepickerModule, MatCardTitle, MatCardContent, MatCardActions
+} from '@angular/material';
+import { MatCardModule } from '@angular/material/card';
+
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { AddTaskComponent } from './components/add-task/add-task.component';
 import { OverdueTasksComponent } from './components/overdue-tasks/overdue-tasks.component';
 
 
@@ -32,11 +34,11 @@ import { OverdueTasksComponent } from './components/overdue-tasks/overdue-tasks.
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
 
-    ApolloModule,
     HttpClientModule,
+    ApolloModule,
     HttpLinkModule,
-    BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
@@ -45,8 +47,11 @@ import { OverdueTasksComponent } from './components/overdue-tasks/overdue-tasks.
     FlexLayoutModule,
     MatInputModule,
     MatCardModule,
-    MatNativeDateModule,
+    // MatCardTitle,
+    // MatCardContent,
+    // MatCardActions,
     MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
