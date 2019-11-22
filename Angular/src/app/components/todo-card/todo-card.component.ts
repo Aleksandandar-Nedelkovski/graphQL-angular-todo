@@ -1,7 +1,8 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Apollo } from 'apollo-angular';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { ITodoItem } from '../../../../../models/ITodoItem';
+import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
+import { EventEmitter } from '@angular/core';
 import { ITodoItemInput } from '../../../../../models/ITodoItemInput';
 import { TodoItemInput } from 'src/app/types/TodoItemInput';
 
@@ -18,10 +19,16 @@ export class TodoCardComponent implements OnInit {
     this.EarliestDate = new Date();
   }
 
-  ngOnInit() { }
-
   @Input() Todo: ITodoItem;
   @Output() deleted: EventEmitter<string> = new EventEmitter<string>();
+
+  Edit(inEdit: boolean) {
+    this.inEdit = inEdit;
+  }
+
+  get InEdit(): boolean {
+    return this.inEdit;
+  }
 
   Save() {
     const todo: ITodoItemInput = new TodoItemInput();
@@ -44,34 +51,13 @@ export class TodoCardComponent implements OnInit {
     this.Edit(false);
   }
 
-  Edit(inEdit: boolean) {
-    this.inEdit = inEdit;
-  }
-
-  get InEdit(): boolean {
-    return this.inEdit;
-  }
-
-  Delete() {
-    this.apollo.mutate({
-      mutation: gql`
-    mutation Remove($Id: String!) {
-      Remove(Id: $Id)
-    }
-    `, variables: {
-        Id: this.Todo.Id
-      }
-    }).subscribe();
-    this.deleted.emit(this.Todo.Id);
-  }
-
   Complete() {
     this.apollo.mutate({
       mutation: gql`
-    mutation Complete($input: String!) {
-      Complete(Id: $input)
-    }
-    `, variables: {
+      mutation Complete($input: String!) {
+        Complete(Id: $input)
+      }
+      `, variables: {
         input: this.Todo.Id
       }
     }).subscribe();
@@ -79,7 +65,20 @@ export class TodoCardComponent implements OnInit {
     this.Todo.Completed = true;
   }
 
-  
+  Delete() {
+    this.apollo.mutate({
+      mutation: gql`
+      mutation Remove($Id: String!) {
+        Remove(Id: $Id)
+      }
+      `, variables: {
+        Id: this.Todo.Id
+      }
+    }).subscribe();
+    this.deleted.emit(this.Todo.Id);
+  }
 
-  
+  ngOnInit() {
+  }
+
 }
