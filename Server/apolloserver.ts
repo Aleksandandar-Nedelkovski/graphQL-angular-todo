@@ -10,8 +10,7 @@ import { GraphQLSchema } from "graphql";
 
 export class MyApp {
 
-  constructor(private mongo: Mongo = new Mongo(),
-  ) { }
+  constructor(private mongo: Mongo = new Mongo()) { }
 
   public async Start(): Promise<void> {
     this.mongo.Connect();

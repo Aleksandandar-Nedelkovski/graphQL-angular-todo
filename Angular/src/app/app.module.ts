@@ -21,6 +21,7 @@ import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { OverdueTasksComponent } from './components/overdue-tasks/overdue-tasks.component';
+import { TodoCardComponent } from './components/todo-card/todo-card.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { OverdueTasksComponent } from './components/overdue-tasks/overdue-tasks.
     AppComponent,
     AddTaskComponent,
     AlltasksComponent,
-    OverdueTasksComponent
+    OverdueTasksComponent,
+    TodoCardComponent
   ],
   imports: [
     BrowserModule,
