@@ -1,0 +1,9 @@
+---
+deployment:
+      tasks:
+        - export DEPLOYPATH=/home1/<annagco1>/public_html/aleks/angular-graphql
+        - /bin/cp <file_name> $DEPLOYPATH
+        - /bin/cp /<sub_folder>/<file_name> $DEPLOYPATH
+        - /bin cp * $DEPLOYPATH
+        - /bin cp /<sub_folder>/* $DEPLOYPATH
+        - /bin/cp -r * $DEPLOYPATH
