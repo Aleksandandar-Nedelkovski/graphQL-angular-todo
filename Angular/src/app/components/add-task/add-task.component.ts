@@ -10,8 +10,8 @@ import { TodoItemInput } from 'src/app/types/TodoItemInput';
   templateUrl: './add-task.component.html',
   styleUrls: ['./add-task.component.scss']
 })
-
 export class AddTaskComponent implements OnInit {
+
   constructor(private apollo: Apollo) { }
 
   Title: string;
