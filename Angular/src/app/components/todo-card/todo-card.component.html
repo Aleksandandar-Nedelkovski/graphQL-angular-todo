@@ -30,7 +30,7 @@
         </span>
       </mat-card-title>
       <mat-card-content>
-        <div *ngIf="InEdit;else displayTemplate">
+        <div *ngIf="InEdit">
           <mat-form-field>
             <textarea matInput placeholder="Description" [(ngModel)]="Todo.Description" name="description"
               #description="ngModel" required></textarea>
@@ -52,16 +52,6 @@
             </div>
           </div>
         </div>
-        <ng-template #displayTemplate>
-          <p class="descriptionBlock">{{Todo.Description}}</p>
-          <p>Due: {{Todo.DueDate | date}}</p>
-          <div *ngIf="Todo.DaysCreated === 0;else olderTemplate">
-            <p>This is a new task</p>
-          </div>
-          <ng-template #olderTemplate>
-            <p>Created {{Todo.DaysCreated}} days ago</p>
-          </ng-template>
-        </ng-template>
       </mat-card-content>
       <mat-card-actions>
         <span *ngIf="!Todo.Completed">
