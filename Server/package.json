@@ -22,7 +22,7 @@
     "nodemon": "^1.18.10",
     "parser": "^0.1.4",
     "reflect-metadata": "^0.1.13",
-    "type-graphql": "^0.17.5"
+    "type-graphql": "^0.17.6"
   },
   "devDependencies": {
     "@types/mongoose": "^5.5.32",
